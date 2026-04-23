@@ -1,0 +1,75 @@
+stages:
+  ingest:
+    cmd: python src/ingest.py --config configs/base.yaml
+    deps:
+      - src/ingest.py
+      - configs/base.yaml
+      - data/raw/us_economic_indicators.csv
+    outs:
+      - data/interim/macro_interim.csv
+
+  validate:
+    cmd: python src/validate.py --config configs/base.yaml
+    deps:
+      - src/validate.py
+      - configs/base.yaml
+      - data/interim/macro_interim.csv
+    metrics:
+      - metrics/data_quality_metrics.json
+
+  features:
+    cmd: python src/features.py --config configs/base.yaml
+    deps:
+      - src/features.py
+      - configs/base.yaml
+      - params.yaml
+      - data/interim/macro_interim.csv
+    outs:
+      - data/processed/macro_features.csv
+
+  isolation_forest:
+    cmd: python src/run_isolation_forest.py --config configs/isolation_forest.yaml
+    deps:
+      - src/run_isolation_forest.py
+      - configs/isolation_forest.yaml
+      - params.yaml
+      - data/processed/macro_features.csv
+    metrics:
+      - metrics/isolation_forest_metrics.json
+    outs:
+      - artifacts/iforest_scored.csv
+
+  factor_analysis:
+    cmd: python src/run_factor_analysis.py --config configs/factor_analysis.yaml
+    deps:
+      - src/run_factor_analysis.py
+      - configs/factor_analysis.yaml
+      - params.yaml
+      - data/processed/macro_features.csv
+    metrics:
+      - metrics/factor_analysis_metrics.json
+    outs:
+      - artifacts/factor_loadings.csv
+      - artifacts/factor_scores.csv
+
+  incremental_pca:
+    cmd: python src/run_incremental_pca.py --config configs/incremental_pca.yaml
+    deps:
+      - src/run_incremental_pca.py
+      - configs/incremental_pca.yaml
+      - params.yaml
+      - data/processed/macro_features.csv
+    metrics:
+      - metrics/incremental_pca_metrics.json
+    outs:
+      - artifacts/incremental_pca_components.csv
+
+  changepoint:
+    cmd: python src/run_changepoint.py --config configs/changepoint.yaml
+    deps:
+      - src/run_changepoint.py
+      - configs/changepoint.yaml
+      - params.yaml
+      - data/processed/macro_features.csv
+    metrics:
+      - metrics/changepoint_metrics.json

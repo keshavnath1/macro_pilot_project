@@ -1,0 +1,5 @@
+method: autoencoder
+input_path: data/processed/macro_features.csv
+date_column: date
+score_output: metrics/autoencoder_metrics.json
+plot_prefix: plots/autoencoder

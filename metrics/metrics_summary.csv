@@ -1,0 +1,6 @@
+method,primary_use,interpretability,scalability,time_awareness,baseline_metric,artifact
+Isolation Forest,Anomaly detection,Medium,High,Medium,anomaly_score,artifacts/iforest_scored.csv
+Factor Analysis,Latent driver discovery,High,Medium,Low,factor_loadings,artifacts/factor_loadings.csv
+Autoencoder,Nonlinear anomaly detection,Low-Medium,Medium,Low,reconstruction_error,metrics/autoencoder_metrics.json
+Incremental PCA,Dimensionality reduction,Medium,High,Low,cumulative_explained_variance,artifacts/incremental_pca_components.csv
+Change Point Detection,Regime shift detection,High,Medium,High,breakpoint_indices,metrics/changepoint_metrics.json

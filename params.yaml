@@ -1,0 +1,25 @@
+dataset:
+  raw_path: data/raw/us_economic_indicators.csv
+  date_column: date
+  target_frequency: monthly
+preprocessing:
+  drop_threshold_missing: 0.4
+  fill_numeric: ffill_then_median
+  standardize: true
+features:
+  lags: [1, 3, 6, 12]
+  rolling_windows: [3, 6, 12]
+  pct_change_windows: [1, 3, 12]
+isolation_forest:
+  n_estimators: 300
+  contamination: 0.03
+  random_state: 42
+factor_analysis:
+  n_factors: 4
+  rotation: varimax
+incremental_pca:
+  n_components: 5
+  batch_size: 64
+changepoint:
+  model: rbf
+  penalty: 8

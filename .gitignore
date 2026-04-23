@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+models/*.pkl
+artifacts/*.json
+plots/*.png
+metrics/*.json
+data/raw/
+data/interim/
+data/processed/

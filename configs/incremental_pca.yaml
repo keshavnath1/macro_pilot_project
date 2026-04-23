@@ -1,0 +1,5 @@
+method: incremental_pca
+input_path: data/processed/macro_features.csv
+date_column: date
+score_output: metrics/incremental_pca_metrics.json
+plot_prefix: plots/pca

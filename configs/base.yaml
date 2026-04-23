@@ -1,0 +1,7 @@
+dataset_name: us_economic_indicators_1991_2023
+raw_path: data/raw/us_economic_indicators.csv
+date_column: date
+output_interim: data/interim/macro_interim.csv
+output_processed: data/processed/macro_features.csv
+metrics_path: metrics/data_quality_metrics.json
+plots_dir: plots
