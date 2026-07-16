@@ -1,0 +1,25 @@
+## Revised Milestone and Progress Update
+
+The **Data Science team has developed a good working knowledge of DVC** and how it can be applied to both current and future model workflows. The initial focus was placed on DVC adoption, particularly for workflows such as **Refit** and **Emulator**, so that the team could establish a practical understanding of data and artifact versioning before expanding into broader pipeline orchestration capabilities.
+
+Through this work, the team has gained experience with **single-stage execution, multi-stage pipelines, input and output dependencies, artifact management, and DVC pipeline visualization**. This knowledge can support the current workflows while also providing a useful foundation for future projects.
+
+## Kubeflow Progress
+
+Unlike DVC, **Kubeflow has not yet been fully adopted**. The team is currently making progress toward understanding how Kubeflow Pipelines could be used effectively and how it may complement the DVC-based workflow.
+
+Kubeflow was introduced after the initial DVC work, with a particular focus on **execution lineage**. This includes gaining visibility into pipeline runs, execution status, logs, metrics, and the outputs produced by individual stages.
+
+Given the current timeline, it may not be possible to explore every Kubeflow capability or complete adoption to its fullest extent. However, the team expects to build a practical understanding of how Kubeflow can support pipeline execution and execution lineage. This initial learning could provide a foundation for broader adoption in future work.
+
+## Overall Lineage Approach
+
+The evolving approach can be summarized as follows:
+
+| Lineage area | Platform | Current position |
+|---|---|---|
+| **Code lineage** | Git | Used to track changes to code and configuration |
+| **Data and artifact lineage** | DVC | Adopted, with useful knowledge established for current and future workflows |
+| **Execution lineage** | Kubeflow | Currently being explored, with adoption efforts focused on pipeline execution, logs, metrics, and run history |
+
+Overall, the team’s primary milestone has been the successful development of practical DVC knowledge. The current Kubeflow effort is a gradual next step toward connecting **code lineage, data lineage, and execution lineage** within a more complete workflow.
